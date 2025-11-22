@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  postgres_ysffunhr:
+    image: postgres:16-alpine
+    container_name: postgres_ysffunhr
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ysffunhr
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      TZ: Asia/Jakarta
+    ports:
+      - "5433:5432"   # Map host port 5433 to container port 5432
+    volumes:
+      - db_ysffunhr_app_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ysffunhr"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  spring_ysffunhr_app:
+    build: .
+    container_name: spring_ysffunhr_app
+    depends_on:
+      postgres_ysffunhr:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_ysffunhr:5432/ysffunhr
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_JPA_HIBERNATE_DDL_AUTO: none
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.PostgreSQLDialect
+      TZ: Asia/Jakarta
+    ports:
+      - "8080:8080"
+
+volumes:
+  db_ysffunhr_app_data:
