@@ -30,13 +30,13 @@ public class TimeRecordDataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        createTimeRecordIfNotExists("Tom", "Project 1",
+        createTimeRecordIfNotExists("Tom", "Sample Project A",
                 LocalDateTime.of(2024, 2, 1, 8, 0, 0),
                 LocalDateTime.of(2024, 2, 1, 17, 0, 0));
-        createTimeRecordIfNotExists("Jerry", "Project 2",
+        createTimeRecordIfNotExists("Jerry", "Sample Project B",
                 LocalDateTime.of(2024, 2, 1, 9, 0, 0),
                 LocalDateTime.of(2024, 2, 1, 18, 30, 0));
-        createTimeRecordIfNotExists("Tom", "Project 1",
+        createTimeRecordIfNotExists("Tom", "Sample Project A",
                 LocalDateTime.of(2024, 2, 2, 8, 15, 0),
                 LocalDateTime.of(2024, 2, 2, 17, 10, 0));
     }

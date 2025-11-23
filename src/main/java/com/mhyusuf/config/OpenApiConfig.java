@@ -14,8 +14,8 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Shop Warehouse API")
-                        .description("REST API documentation for the Shop Warehouse system")
+                        .title("YSFunHR API")
+                        .description("REST API documentation for the YSFunHR API")
                         .version("1.0.0")
                         .contact(new Contact()
                                 .name("Mohamad Yusuf Ibrahim")

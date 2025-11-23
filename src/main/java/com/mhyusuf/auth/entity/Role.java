@@ -20,7 +20,7 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // Use AUTO for UUID generation
-    @Column(columnDefinition = "BINARY(16)")
+    @Column(columnDefinition = "UUID")
     private UUID id;
 
     private String name;

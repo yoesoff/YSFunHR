@@ -45,11 +45,11 @@ public class AuthServiceImpl implements AuthService {
 
         // Cek apakah username atau email sudah digunakan
         if (userRepository.existsByUsername(registerDto.getUsername())) {
-            throw new RuntimeException("Username sudah digunakan!");
+            throw new RuntimeException("Username already been used!");
         }
 
         if (userRepository.existsByEmail(registerDto.getEmail())) {
-            throw new RuntimeException("Email sudah digunakan!");
+            throw new RuntimeException("Email has been used!");
         }
 
         // Buat user baru
@@ -59,11 +59,11 @@ public class AuthServiceImpl implements AuthService {
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
 
         // Set role default (USER)
-        Role role = roleRepository.findByName("USER").orElseThrow(() -> new RuntimeException("Role tidak ditemukan"));
+        Role role = roleRepository.findByName("USER").orElseThrow(() -> new RuntimeException("Role not found"));
         user.setRoles(Collections.singleton(role));
 
         userRepository.save(user);
 
-        return "User berhasil didaftarkan!";
+        return "User has been registered successfully!";
     }
 }
