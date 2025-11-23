@@ -4,8 +4,10 @@ import com.mhyusuf.hr.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-    // Add custom query methods if needed
     boolean existsByName(String name);
+    Optional<Employee> findByName(String name);
 }
