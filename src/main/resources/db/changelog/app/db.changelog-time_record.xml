@@ -1,0 +1,53 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="06-create-time-record-table" author="Yusuf Ibrahim">
+        <createTable tableName="time_record">
+            <!-- Primary Key -->
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <!-- Foreign Keys merujuk ke tabel employee dan project -->
+            <column name="employee_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="project_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Kolom waktu -->
+            <column name="time_from" type="TIMESTAMP" remarks="Start time of the recorded activity">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time_to" type="TIMESTAMP" remarks="End time of the recorded activity">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Kolom audit standar -->
+            <column name="created_by" type="VARCHAR(100)"/>
+            <column name="updated_by" type="VARCHAR(100)"/>
+            <column name="created_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"/>
+            <column name="updated_at" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"/>
+        </createTable>
+
+        <!-- Tambahkan Foreign Key Constraints -->
+        <addForeignKeyConstraint
+                baseTableName="time_record"
+                baseColumnNames="employee_id"
+                constraintName="fk_time_record_employee"
+                referencedTableName="employee"
+                referencedColumnNames="id"/>
+
+        <addForeignKeyConstraint
+                baseTableName="time_record"
+                baseColumnNames="project_id"
+                constraintName="fk_time_record_project"
+                referencedTableName="project"
+                referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

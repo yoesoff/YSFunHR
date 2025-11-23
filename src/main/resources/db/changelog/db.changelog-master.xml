@@ -12,5 +12,11 @@
     <include file="auth/db.changelog-role.xml" relativeToChangelogFile="true"/>
     <include file="auth/db.changelog-user-role.xml" relativeToChangelogFile="true"/>
 
+    <!-- ============================== -->
+    <!--         HR MODULE (NEW)        -->
+    <!-- ============================== -->
+    <include file="app/db.changelog-project.xml" relativeToChangelogFile="true"/>
+    <include file="app/db.changelog-employee.xml" relativeToChangelogFile="true"/>
+    <include file="app/db.changelog-time_record.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
