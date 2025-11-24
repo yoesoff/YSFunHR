@@ -8,7 +8,7 @@ import java.util.List;
 public interface TimeRecordService {
     TimeRecordDto.Response create(TimeRecordDto.Request dto);
     TimeRecordDto.Response getById(Long id);
-    public Page<TimeRecordDto.Response> getAll(String search, Pageable pageable);
+    Page<TimeRecordDto.Response> getAll(String search, Pageable pageable);
     TimeRecordDto.Response update(Long id, TimeRecordDto.Request dto);
     void delete(Long id);
 }

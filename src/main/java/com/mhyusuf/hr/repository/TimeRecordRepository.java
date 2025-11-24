@@ -39,19 +39,27 @@ public interface TimeRecordRepository extends JpaRepository<TimeRecord, Long> {
 //            @Param("endDate") LocalDateTime endDate
 //    );
 
-    @Query(value = """
-        SELECT e.name AS employeeName,
-               p.name AS projectName,
-               SUM(EXTRACT(EPOCH FROM (tr.time_to - tr.time_from)) / 3600) AS totalHours
-        FROM time_record tr
-        JOIN employee e ON e.id = tr.employee_id
-        JOIN project p ON p.id = tr.project_id
-        WHERE tr.time_from BETWEEN :startDate AND :endDate
-        GROUP BY e.name, p.name
-        ORDER BY e.name, p.name
-        """, nativeQuery = true)
-    List<ReportDTO> getReportData(
-            @Param("startDate") LocalDateTime startDate,
-            @Param("endDate") LocalDateTime endDate
-    );
+    @Query(value = "SELECT e.name AS employeeName, p.name AS projectName, " +
+            "SUM(EXTRACT(EPOCH FROM (tr.time_to - tr.time_from)) / 3600) AS totalHours " +
+            "FROM time_record tr " +
+            "JOIN employee e ON e.id = tr.employee_id " +
+            "JOIN project p ON p.id = tr.project_id " +
+            "WHERE tr.time_from BETWEEN :startDate AND :endDate " +
+            "GROUP BY e.name, p.name " +
+            "ORDER BY e.name, p.name",
+            nativeQuery = true)
+    List<Object[]> getReportRawData(@Param("startDate") LocalDateTime startDate,
+                                    @Param("endDate") LocalDateTime endDate);
+
+
+    default List<ReportDTO> getReportData(LocalDateTime startDate, LocalDateTime endDate) {
+        List<Object[]> raw = getReportRawData(startDate, endDate);
+        return raw.stream()
+                .map(arr -> new ReportDTO(
+                        (String) arr[0],
+                        (String) arr[1],
+                        ((Number) arr[2]).doubleValue()
+                ))
+                .toList();
+    }
 }
