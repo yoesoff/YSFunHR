@@ -8,6 +8,110 @@
 	},
 	"item": [
 		{
+			"name": "JWT User",
+			"item": [
+				{
+					"name": "Login Admin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usernameOrEmail\": \"admin@example.com\",\r\n    \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/api/auth/login",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"usernameOrEmail\": \"user1@example.com\",\r\n    \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/api/auth/login",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"banno\",\r\n  \"email\": \"banno@example.com\",\r\n  \"password\": \"password1234\",\r\n  \"role\": \"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/api/auth/register",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST \"{{base}}/api/auth/register\" \\\r\n-H \"Authorization: Bearer {{token}}\" \\\r\n-H \"Content-Type: application/json\" \\\r\n-d '{\r\n  \"username\": \"your_username\",\r\n  \"email\": \"your_email@example.com\",\r\n  \"password\": \"your_secure_password\",\r\n  \"role\": \"USER\"\r\n}'\r\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "GET Projects List",
 			"request": {
 				"auth": {
