@@ -44,9 +44,10 @@ public interface TimeRecordRepository extends JpaRepository<TimeRecord, Long> {
             "FROM time_record tr " +
             "JOIN employee e ON e.id = tr.employee_id " +
             "JOIN project p ON p.id = tr.project_id " +
-            "WHERE tr.time_from BETWEEN :startDate AND :endDate " +
-            "GROUP BY e.name, p.name " +
-            "ORDER BY e.name, p.name",
+//            "WHERE tr.time_from BETWEEN :startDate AND :endDate " +
+            "WHERE tr.time_from >= :startDate AND tr.time_from < :endDate " +
+            "GROUP BY tr.employee_id, e.name, tr.project_id, p.name " +
+            "ORDER BY e.name, p.name ",
             nativeQuery = true)
     List<Object[]> getReportRawData(@Param("startDate") LocalDateTime startDate,
                                     @Param("endDate") LocalDateTime endDate);
