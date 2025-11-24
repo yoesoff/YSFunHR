@@ -21,24 +21,6 @@ public interface TimeRecordRepository extends JpaRepository<TimeRecord, Long> {
             String employeeName, String projectName, Pageable pageable
     );
 
-//    @Query("""
-//        SELECT new com.mhyusuf.hr.dto.ReportDTO(
-//            e.name,
-//            p.name,
-//            SUM(EXTRACT(EPOCH FROM (tr.timeTo - tr.timeFrom)) / 3600)
-//        )
-//        FROM TimeRecord tr
-//        JOIN tr.employee e
-//        JOIN tr.project p
-//        WHERE tr.timeFrom BETWEEN :startDate AND :endDate
-//        GROUP BY e.name, p.name
-//        ORDER BY e.name, p.name
-//    """)
-//    List<ReportDTO> getReportData(
-//            @Param("startDate") LocalDateTime startDate,
-//            @Param("endDate") LocalDateTime endDate
-//    );
-
     @Query(value = "SELECT e.name AS employeeName, p.name AS projectName, " +
             "SUM(EXTRACT(EPOCH FROM (tr.time_to - tr.time_from)) / 3600) AS totalHours " +
             "FROM time_record tr " +
