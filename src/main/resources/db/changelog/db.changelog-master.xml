@@ -18,5 +18,6 @@
     <include file="app/db.changelog-project.xml" relativeToChangelogFile="true"/>
     <include file="app/db.changelog-employee.xml" relativeToChangelogFile="true"/>
     <include file="app/db.changelog-time_record.xml" relativeToChangelogFile="true"/>
+    <include file="app/db.changelog-time_record-indexes.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
