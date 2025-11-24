@@ -8,6 +8,8 @@ import com.mhyusuf.hr.repository.EmployeeRepository;
 import com.mhyusuf.hr.repository.ProjectRepository;
 import com.mhyusuf.hr.repository.TimeRecordRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -42,11 +44,16 @@ public class TimeRecordServiceImpl implements TimeRecordService {
     }
 
     @Override
-    public List<TimeRecordDto.Response> getAll() {
-        return timeRecordRepository.findAll()
-                .stream()
-                .map(this::toResponseDto)
-                .collect(Collectors.toList());
+    public Page<TimeRecordDto.Response> getAll(String search, Pageable pageable) {
+        Page<TimeRecord> page;
+        if (search != null && !search.isEmpty()) {
+            page = timeRecordRepository.findByEmployee_NameContainingIgnoreCaseOrProject_NameContainingIgnoreCase(
+                    search, search, pageable
+            );
+        } else {
+            page = timeRecordRepository.findAll(pageable);
+        }
+        return page.map(this::toResponseDto);
     }
 
     @Override

@@ -21,9 +21,13 @@ public class EmployeeController {
 
     @Operation(summary = "Get all employees")
     @GetMapping
-    public List<EmployeeDto.Response> getAll() {
-        return employeeService.getAllEmployees();
+    public ResponseEntity<?> getAll(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) String search) {
+        return ResponseEntity.ok(employeeService.getAllEmployees(page, size, search));
     }
+
 
     @Operation(summary = "Get employee by ID")
     @GetMapping("/{id}")

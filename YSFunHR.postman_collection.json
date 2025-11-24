@@ -1,0 +1,699 @@
+{
+	"info": {
+		"_postman_id": "2c342465-7015-4a35-98d9-8d5731c6f53f",
+		"name": "YSFunHR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26625601",
+		"_collection_link": "https://orange-satellite-484597.postman.co/workspace/YBoilerplate~1d20d9f0-49b8-41d4-bd71-c39117cb7de9/collection/26625601-2c342465-7015-4a35-98d9-8d5731c6f53f?action=share&source=collection_link&creator=26625601"
+	},
+	"item": [
+		{
+			"name": "GET Projects List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"projects"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://localhost:8080/api/projects\n"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Project List page=0&size=10&search=example",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token>"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/projects?page=0&size=10&search=updated",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"projects"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "search",
+							"value": "updated"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"http://localhost:8080/api/projects?page=0&size=10&search=example\" -H \"Authorization: Bearer <your_token>\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Project by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/projects/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"projects",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://localhost:8080/api/projects/{id}"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Project",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"sample project\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"projects"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/projects \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"field1\":\"value1\",\"field2\":\"value2\"}'"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Project By ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"updated sample project\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/projects/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"projects",
+						"3"
+					]
+				},
+				"description": "Generated from cURL: \ncurl -X PUT http://localhost:8080/api/projects/3 \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"name\":\"updated sample project\"}'"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Project by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/projects/{id}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"projects",
+						"{id}"
+					]
+				},
+				"description": "Generated from cURL: curl -X DELETE http://localhost:8080/api/projects/{id}"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employees List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://localhost:8080/api/employees\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee List page=0&size=10&search=John",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_token>"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/employees?page=0&size=10&search=tom",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "search",
+							"value": "tom"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"http://localhost:8080/api/employees?page=0&size=10&search=John\" -H \"Authorization: Bearer <your_token>\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/employees/{id}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees",
+						"{id}"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://localhost:8080/api/employees/{id}"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Employee By ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/employees/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees",
+						"3"
+					]
+				},
+				"description": "Generated from cURL: curl -X DELETE http://localhost:8080/api/employees/{id}"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT  employees",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"updated sugi\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/employees/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees",
+						"3"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/employees \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"field1\":\"value1\",\"field2\":\"value2\"}'"
+			},
+			"response": []
+		},
+		{
+			"name": "POST employees",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Sugiharto\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/employees \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"field1\":\"value1\",\"field2\":\"value2\"}'"
+			},
+			"response": []
+		},
+		{
+			"name": "GET time-records List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/time-records",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"time-records"
+					]
+				},
+				"description": "Generated from cURL: curl http://localhost:8080/api/time-records\n"
+			},
+			"response": []
+		},
+		{
+			"name": "GET Time Record All time-records search=John&page=0&size=10",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/time-records?search=Tom&page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"time-records"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "Tom"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				},
+				"description": "Generated from cURL: curl -X GET \"http://localhost:8080/api/time-records?search=John&page=0&size=10\" -H \"Accept: application/json\"\n"
+			},
+			"response": []
+		},
+		{
+			"name": "GET time-records By ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/time-records/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"time-records",
+						"1"
+					]
+				},
+				"description": "Generated from cURL: \ncurl -X GET http://localhost:8080/api/time-records/1"
+			},
+			"response": []
+		},
+		{
+			"name": "POST time-records",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"employeeId\": 1,\n    \"projectId\": 2,\n    \"timeFrom\": \"2026-06-10T09:00:00\",\n    \"timeTo\": \"2026-06-10T17:00:00\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/time-records",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"time-records"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8080/api/time-records \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"employeeId\": 1,\n    \"projectId\": 2,\n    \"timeFrom\": \"2026-06-10T09:00:00\",\n    \"timeTo\": \"2026-06-10T17:00:00\"\n  }'"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT time-records by Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"employeeId\": 1,\n    \"projectId\": 2,\n    \"timeFrom\": \"2026-06-10T09:00:00\",\n    \"timeTo\": \"2026-06-11T17:00:00\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/time-records/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"time-records",
+						"4"
+					]
+				},
+				"description": "Generated from cURL: curl -X PUT http://localhost:8080/api/time-records/{id} \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"employeeId\": 1,\n    \"projectId\": 2,\n    \"timeFrom\": \"2026-06-10T09:00:00\",\n    \"timeTo\": \"2026-06-10T17:00:00\"\n  }'"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE time-records By Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/time-records/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"time-records",
+						"4"
+					]
+				},
+				"description": "Generated from cURL: curl -X DELETE http://localhost:8080/api/time-records/{id}"
+			},
+			"response": []
+		}
+	]
+}

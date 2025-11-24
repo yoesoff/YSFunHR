@@ -6,6 +6,8 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -26,8 +28,10 @@ public class TimeRecordController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TimeRecordDto.Response>> getAll() {
-        return ResponseEntity.ok(timeRecordService.getAll());
+    public ResponseEntity<Page<TimeRecordDto.Response>> getAll(
+            @RequestParam(required = false) String search,
+            Pageable pageable) {
+        return ResponseEntity.ok(timeRecordService.getAll(search, pageable));
     }
 
     @PutMapping("/{id}")

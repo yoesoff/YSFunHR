@@ -1,6 +1,8 @@
 package com.mhyusuf.hr.repository;
 
 import com.mhyusuf.hr.model.Employee;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,4 +12,5 @@ import java.util.Optional;
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     boolean existsByName(String name);
     Optional<Employee> findByName(String name);
+    Page<Employee> findByNameContainingIgnoreCase(String name, Pageable pageable);
 }

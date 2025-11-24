@@ -6,6 +6,9 @@ import com.mhyusuf.hr.model.Employee;
 import com.mhyusuf.hr.repository.EmployeeRepository;
 import com.mhyusuf.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,13 +20,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
 
     @Override
-    public List<EmployeeDto.Response> getAllEmployees() {
-        return employeeRepository.findAll().stream()
-                .map(emp -> EmployeeDto.Response.builder()
-                        .id(emp.getId())
-                        .name(emp.getName())
-                        .build())
-                .toList();
+    public Page<EmployeeDto.Response> getAllEmployees(int page, int size, String search) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Employee> employeePage;
+        if (search != null && !search.isEmpty()) {
+            employeePage = employeeRepository.findByNameContainingIgnoreCase(search, pageable);
+        } else {
+            employeePage = employeeRepository.findAll(pageable);
+        }
+        return employeePage.map(emp -> EmployeeDto.Response.builder()
+                .id(emp.getId())
+                .name(emp.getName())
+                .build());
     }
 
     @Override
