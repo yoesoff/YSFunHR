@@ -1,7 +1,7 @@
 package com.mhyusuf.hr.controller;
 
+import com.mhyusuf.hr.dto.ReportView;
 import com.mhyusuf.hr.repository.TimeRecordRepository;
-import com.mhyusuf.hr.dto.ReportDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -35,8 +35,13 @@ public class ReportController {
             endDate = LocalDateTime.now();
         }
 
-        List<ReportDTO> reportData = timeRecordRepository.getReportData(startDate, endDate);
+        List<ReportView> reportData = timeRecordRepository.getReportData(startDate, endDate);
         model.addAttribute("reportData", reportData);
+
+        // Agar input tetap muncul setelah submit
+        model.addAttribute("startDate", startDate);
+        model.addAttribute("endDate", endDate);
+
         return "work_hours_report";
     }
 }
