@@ -50,7 +50,7 @@ public class TimeRecordDataInitializer implements CommandLineRunner {
         if (employeeOpt.isPresent() && projectOpt.isPresent()) {
             Long employeeId = employeeOpt.get().getId();
             Long projectId = projectOpt.get().getId();
-            boolean exists = timeRecordRepository.existsByEmployeeIdAndProjectIdAndTimeFromAndTimeTo(
+            boolean exists = timeRecordRepository.existsByEmployee_IdAndProject_IdAndTimeFromAndTimeTo(
                     employeeId, projectId, from, to
             );
             if (!exists) {

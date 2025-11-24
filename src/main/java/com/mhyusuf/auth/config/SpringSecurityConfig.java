@@ -47,6 +47,8 @@ public class SpringSecurityConfig {
                 .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                 // Health check and monitoring
                 .requestMatchers("/actuator/**").permitAll()
+                // Report page
+                .requestMatchers("/report").permitAll()
                 // Static resources (Thymeleaf, JS, CSS, etc.)
                 .requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
                 // Allow CORS preflight
