@@ -14,8 +14,11 @@ public class EmployeeDataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        createEmployeeIfNotExists("Tom");
-        createEmployeeIfNotExists("Jerry");
+        createEmployeeIfNotExists("Tom");    // No 1
+        createEmployeeIfNotExists("Jerry");  // No 2
+        for (int i = 1; i <= 1000; i++) {
+            createEmployeeIfNotExists("user" + i); // user1 - user1000
+        }
     }
 
     private void createEmployeeIfNotExists(String name) {

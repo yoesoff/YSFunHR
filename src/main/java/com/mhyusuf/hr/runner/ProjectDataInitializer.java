@@ -14,8 +14,9 @@ public class ProjectDataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        createProjectIfNotExists( "Sample Project A");
-        createProjectIfNotExists( "Sample Project B");
+        for (char c = 'A'; c <= 'Z'; c++) {
+            createProjectIfNotExists("Sample Project " + c);
+        }
     }
 
     private void createProjectIfNotExists(String name) {
