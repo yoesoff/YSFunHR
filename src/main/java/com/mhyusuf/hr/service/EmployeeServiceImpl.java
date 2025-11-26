@@ -4,14 +4,12 @@ import com.mhyusuf.hr.dto.EmployeeDto;
 import com.mhyusuf.hr.exception.DuplicateResourceException;
 import com.mhyusuf.hr.model.Employee;
 import com.mhyusuf.hr.repository.EmployeeRepository;
-import com.mhyusuf.exception.ResourceNotFoundException;
+import com.mhyusuf.setting.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

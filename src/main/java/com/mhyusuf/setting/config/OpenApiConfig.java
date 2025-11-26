@@ -1,4 +1,4 @@
-package com.mhyusuf.config;
+package com.mhyusuf.setting.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;

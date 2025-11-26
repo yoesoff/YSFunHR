@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+/**
+ * This data initializer creates Project entries in the database if they do not already exist.
+ * It creates projects named "Sample Project A" through "Sample Project Z".
+ */
 @Component
 public class ProjectDataInitializer implements CommandLineRunner {
 

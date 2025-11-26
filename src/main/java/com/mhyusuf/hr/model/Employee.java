@@ -1,6 +1,6 @@
 package com.mhyusuf.hr.model;
 
-import com.mhyusuf.common.model.BaseEntity;
+import com.mhyusuf.setting.model.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 

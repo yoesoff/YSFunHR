@@ -1,4 +1,4 @@
-package com.mhyusuf.exception;
+package com.mhyusuf.setting.exception;
 
 public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException(String message) {

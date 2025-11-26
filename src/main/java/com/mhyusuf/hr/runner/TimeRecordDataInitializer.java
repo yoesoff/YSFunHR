@@ -16,6 +16,11 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.*;
 
+/**
+ * This data initializer creates TimeRecord entries in the database if they do not already exist.
+ * It assigns specific time records to "Tom" and "Jerry", and then creates 1000 additional time records
+ * for users "user1" through "user1000" with random project assignments and work times.
+ */
 @Order(Integer.MAX_VALUE)
 @Component
 public class TimeRecordDataInitializer implements CommandLineRunner {

@@ -1,4 +1,4 @@
-package com.mhyusuf.dto;
+package com.mhyusuf.auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

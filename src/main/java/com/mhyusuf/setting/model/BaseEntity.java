@@ -1,4 +1,4 @@
-package com.mhyusuf.common.model;
+package com.mhyusuf.setting.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

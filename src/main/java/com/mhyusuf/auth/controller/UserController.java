@@ -1,9 +1,9 @@
-package com.mhyusuf.controller.rest;
+package com.mhyusuf.auth.controller;
 
 import com.mhyusuf.auth.entity.User;
-import com.mhyusuf.dto.UserDto;
-import com.mhyusuf.dto.UserMapper;
-import com.mhyusuf.exception.ResourceNotFoundException;
+import com.mhyusuf.auth.dto.UserDto;
+import com.mhyusuf.auth.dto.UserMapper;
+import com.mhyusuf.setting.exception.ResourceNotFoundException;
 import com.mhyusuf.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

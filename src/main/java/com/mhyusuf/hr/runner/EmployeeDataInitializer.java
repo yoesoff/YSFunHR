@@ -6,6 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+/*
+ This data initializer creates Employee entries in the database if they do not already exist.
+ It adds two specific employees, "Tom" and "Jerry", and then creates 1000 additional employees
+ named "user1" through "user1000".
+*/
 @Component
 public class EmployeeDataInitializer implements CommandLineRunner {
 

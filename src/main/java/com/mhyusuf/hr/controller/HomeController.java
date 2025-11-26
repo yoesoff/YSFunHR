@@ -1,4 +1,4 @@
-package com.mhyusuf.controller.html;
+package com.mhyusuf.hr.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
-public class GreetingController {
+public class HomeController {
     @GetMapping({"", "/"})
     public String greeting(@RequestParam(value = "name", defaultValue = "Reviewer") String name, Model model) {
         model.addAttribute("name", name);
-        return "greeting";
+        return "home";
     }
 }
